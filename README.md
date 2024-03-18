@@ -19,4 +19,12 @@ Por otra parte, se utilizó un motor de base de datos que no estpa pensado a pri
 ## ¿Cómo correr el programa?
 Los scripts están escritos en python. Todo se orquesta desde el archivo `run.sh` desde la compresión de los archivos hasta la creación del dataset final.
 
+Para que el script funcione se debe crear un archivo llamado `.env` con la siguiente estructura:
+
+```
+DB_USER=postgres
+DB_PASS=prueba_meli
+DB_NAME=postgres
+```
+
 La consulta con actual con la que se consturye el dataset final no añade los campos relacionados a la tabla pays. Tuve problemas con los tiempos de ejecución de la consulta así que decidí no añadir dichos campos. Sin embargo para añadir dichas columnas seguiría el mismo patron de las otras columnas. Generar tablas temporales para despues hacer los cruces por ID y fecha.
