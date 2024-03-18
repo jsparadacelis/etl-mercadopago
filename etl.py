@@ -1,4 +1,6 @@
+import logging
 import os
+
 import pandas as pd
 
 import utils.db_conn as db_conn
@@ -9,6 +11,7 @@ class Settings:
     compression_folder_path: str = "./compression"
 
 _settings = Settings()
+logging.basicConfig(level=logging.DEBUG, format='%(asctime)s - %(levelname)s - %(message)s')
 
 
 def expand_dict_columns(df: pd.DataFrame) -> pd.DataFrame:
@@ -67,6 +70,7 @@ def create_dataset() -> None:
 
 
 def main() -> None:
+    logging.info("Start to create tables...")
     compression_folder = _settings.compression_folder_path
     for compressed_file in set(os.listdir(compression_folder)):
        parquet_path = f"{compression_folder}/{compressed_file}"

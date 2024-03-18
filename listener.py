@@ -12,6 +12,7 @@ class Settings:
 
 
 _settings = Settings()
+logging.basicConfig(level=logging.DEBUG, format='%(asctime)s - %(levelname)s - %(message)s')
 
 
 def detect_new_files(folder: str, live: bool = False) -> None:
@@ -47,5 +48,6 @@ def detect_new_files(folder: str, live: bool = False) -> None:
 
 
 def main() -> None:
+    logging.info("Start to compress files...")
     folder_to_watch = "./ingestion"
     detect_new_files(folder_to_watch)
